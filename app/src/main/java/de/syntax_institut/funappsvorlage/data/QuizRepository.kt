@@ -1,5 +1,7 @@
-package de.syntax_institut.funappsvorlage.data
+package de.syntax_institut.funappsvorlage.data // ktlint-disable package-name
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import de.syntax_institut.funappsvorlage.data.model.Question
 
 /**
@@ -7,7 +9,13 @@ import de.syntax_institut.funappsvorlage.data.model.Question
  */
 class QuizRepository {
 
-    // TODO Schreibe hier deinen Code
+    private val _list = MutableLiveData<List<Question>>()
+    val list: LiveData<List<Question>>
+        get() = _list
+
+    init {
+        _list.value = loadQuestions()
+    }
 
     /**
      * Diese Funktion liefert eine Liste an Question Objekten zurück, in denen die Frage, die

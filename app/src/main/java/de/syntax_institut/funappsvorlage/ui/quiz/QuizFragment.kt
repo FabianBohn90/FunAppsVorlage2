@@ -1,4 +1,4 @@
-package de.syntax_institut.funappsvorlage.ui.quiz
+package de.syntax_institut.funappsvorlage.ui.quiz // ktlint-disable package-name
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,7 +28,7 @@ class QuizFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentQuizBinding.inflate(inflater, container, false)
         return binding.root
@@ -46,9 +46,28 @@ class QuizFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         // Setze onClickListeners
-        // TODO Schreibe hier deinen Code
+        binding.tvAnswerA.setOnClickListener {
+            viewModel.checkAnswer(1)
+        }
+        binding.tvAnswerB.setOnClickListener {
+            viewModel.checkAnswer(2)
+        }
+        binding.tvAnswerC.setOnClickListener {
+            viewModel.checkAnswer(3)
+        }
+        binding.tvAnswerD.setOnClickListener {
+            viewModel.checkAnswer(4)
+        }
 
         // Beobachte die gameOver Variable des viewModel, falls das Spiel vorbei ist
-        // TODO Schreibe hier deinen Code
+        viewModel.gameOver.observe(
+            viewLifecycleOwner
+        ) {
+            if (it) {
+                findNavController().navigate(
+                    QuizFragmentDirections.actionQuizFragmentToResultFragment()
+                )
+            }
+        }
     }
 }

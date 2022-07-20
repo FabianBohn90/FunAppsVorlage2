@@ -52,7 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=""
+
+                android:text="@{viewmodel.currentPrice.toString() + '€'}"
                 android:textColor="@color/SI_DeepPurple"
                 android:textSize="48sp"
                 android:textStyle="bold" />
@@ -72,7 +73,7 @@
             <TextView
                 android:id="@+id/tvQuestion"
                 style="@style/TextViewStyleQuestion"
-                android:text=""
+                android:text="@{viewmodel.currentQuestion.question}"
                 app:layout_constraintBottom_toTopOf="@+id/tvAnswerA"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -81,7 +82,7 @@
             <TextView
                 android:id="@+id/tvAnswerA"
                 style="@style/TextViewStyleQuestion.Answer"
-                android:text=""
+                android:text="@{viewmodel.currentQuestion.answerA}"
                 app:layout_constraintBottom_toTopOf="@+id/tvAnswerC"
                 app:layout_constraintEnd_toStartOf="@id/tvAnswerB"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -90,7 +91,7 @@
             <TextView
                 android:id="@+id/tvAnswerB"
                 style="@style/TextViewStyleQuestion.Answer"
-                android:text=""
+                android:text="@{viewmodel.currentQuestion.answerB}"
                 app:layout_constraintBottom_toTopOf="@+id/tvAnswerD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -99,7 +100,7 @@
             <TextView
                 android:id="@+id/tvAnswerC"
                 style="@style/TextViewStyleQuestion.Answer"
-                android:text=""
+                android:text="@{viewmodel.currentQuestion.answerC}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvAnswerD"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -108,7 +109,7 @@
             <TextView
                 android:id="@+id/tvAnswerD"
                 style="@style/TextViewStyleQuestion.Answer"
-                android:text=""
+                android:text="@{viewmodel.currentQuestion.answerD}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
